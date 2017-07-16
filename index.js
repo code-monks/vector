@@ -113,7 +113,7 @@ const handlers = {
                         console.log(busNum)
                         var busName = steps[i].transit_details.line.name
                         console.log(busName)
-                        answer = answer + " " + busNum + " jiska naam " + busName + " hai. Aapko lagenge" + duration + " waha pahuchne mein. Aapki manzil" + distance + " dhooor haai."
+                        answer = answer + " " + busNum + " jiska naam " + busName + " hai. Aapko lagenge " + duration + " waha pahuchne mein. Aapki manzil " + distance + " dhooor haai."
                         flag = true;
                     }
                 }
