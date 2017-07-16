@@ -101,19 +101,19 @@ const handlers = {
                 console.log(duration)
                 var steps = data.routes[0].legs[0].steps;
                 console.log(steps)
-                var answer = "Take Bus Number "
+                var answer = "Aapko leni hai "
                 var flag  = false
                 for(var i=0;i<steps.length;i++){
                     //
                     if(steps[i].travel_mode=="TRANSIT"){
                         if(flag==true){
-                            answer = answer + " then take";
+                            answer = answer + " uske baad";
                         }
                         var busNum = steps[i].transit_details.line.short_name
                         console.log(busNum)
                         var busName = steps[i].transit_details.line.name
                         console.log(busName)
-                        answer = answer + " " + busNum + " with name " + busName + ". It will take you " + duration + " to reach your destination, which is " + distance + " away."
+                        answer = answer + " " + busNum + " jiska naam " + busName + " hai. Aapko lagenge" + duration + " waha pahuchne mein. Aapki manzil" + distance + " dhooor haai."
                         flag = true;
                     }
                 }
