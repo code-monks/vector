@@ -30,7 +30,7 @@ const languageStrings = {
             RECIPE_REPEAT_MESSAGE: 'I Repeat, ',
             RECIPE_NOT_FOUND_MESSAGE: "I\'m sorry, I currently do not know. ",
             RECIPE_NOT_FOUND_WITH_ITEM_NAME: 'Bus Depot or Route Not found. ',
-            RECIPE_NOT_FOUND_WITHOUT_ITEM_NAME: 'that recipe. ',
+            RECIPE_NOT_FOUND_WITHOUT_ITEM_NAME: 'that route. ',
             RECIPE_NOT_FOUND_REPROMPT: 'What else can I help with?',
         },
     },
@@ -101,15 +101,20 @@ const handlers = {
                 console.log(duration)
                 var steps = data.routes[0].legs[0].steps;
                 console.log(steps)
-                var answer = "Take"
+                var answer = "Take Bus Number "
+                var flag  = false
                 for(var i=0;i<steps.length;i++){
                     //
                     if(steps[i].travel_mode=="TRANSIT"){
+                        if(flag==true){
+                            answer = answer + " then take";
+                        }
                         var busNum = steps[i].transit_details.line.short_name
                         console.log(busNum)
                         var busName = steps[i].transit_details.line.name
                         console.log(busName)
-                        answer = answer + " " + busNum + " with name " + busName 
+                        answer = answer + " " + busNum + " with name " + busName + ". It will take you " + duration + " to reach your destination, which is " + distance + " away."
+                        flag = true;
                     }
                 }
             }catch(err){
